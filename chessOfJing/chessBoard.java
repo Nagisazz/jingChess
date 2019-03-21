@@ -17,18 +17,23 @@ public class chessBoard
         winner=' ';
         winornot=0;
         serial=0;
-        newMove=9;
+        newMove=0;
     }
     public chessBoard()//无参初始化
     {
-        for(int i=0;i<9;i++)
-        {
-            cb[i]=' ';
-        }
+        cb[0]='7';
+        cb[1]='8';
+        cb[2]='9';
+        cb[3]='4';
+        cb[4]='5';
+        cb[5]='6';
+        cb[6]='1';
+        cb[7]='2';
+        cb[8]='3';
         winner=' ';
         winornot=0;
         serial=0;
-        newMove=9;
+        newMove=0;
     }
     public void setBoard(char[] boc)//设定棋局
     {
@@ -86,7 +91,7 @@ public class chessBoard
         for(int i=0;i<9;i+=3)
         {
             if((cb[i]==cb[i+1]&&cb[i+1]==cb[i+2])
-                    &&(cb[i]!=' '))
+                    &&(cb[i]=='X'||cb[i]=='O'))
             {
                 isWin=1;
                 winner=cb[i];
@@ -99,7 +104,7 @@ public class chessBoard
             return isWin;
         }
 
-        if((cb[0]==cb[4]&&cb[4]==cb[8])&&(cb[0]!=' '))
+        if((cb[0]==cb[4]&&cb[4]==cb[8])&&(cb[0]=='X'||cb[0]=='O'))
         {
             isWin=1;
             winner=cb[0];
@@ -115,7 +120,7 @@ public class chessBoard
         for(int i=0;i<9;i+=3)
         {
             if((rotate90Cb[i]==rotate90Cb[i+1]&&rotate90Cb[i+1]==rotate90Cb[i+2])
-                    &&(rotate90Cb[i]!=' '))
+                    &&(rotate90Cb[i]=='X'||rotate90Cb[i]=='O'))
             {
                 isWin=1;
                 winner=rotate90Cb[i];
@@ -129,7 +134,7 @@ public class chessBoard
         }
 
         if((rotate90Cb[0]==rotate90Cb[4]&&rotate90Cb[4]==rotate90Cb[8])
-                &&(rotate90Cb[0]!=' '))
+                &&(rotate90Cb[0]=='X'||rotate90Cb[0]=='O'))
         {
             isWin=1;
             winner=rotate90Cb[0];
