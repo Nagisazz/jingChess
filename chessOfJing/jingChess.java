@@ -4,15 +4,45 @@ public class jingChess
 {
     public static void main(String[] args)
     {
-        char[] testBoard={' ','X','O','O','X','X','O',' ',' '};
-        chessBoard cbOne=new chessBoard(testBoard);
-        cbOne.display();
-        char[] tbTwo={'X','O','O','O','X',' ',' ',' ','X'};
-        cbOne.setBoard(tbTwo);
-        cbOne.display();
-        if(cbOne.isWin()==1)
+        chessBoard cb=new chessBoard();
+        player playerX=new player(cb);
+        player playerO=new player(cb);
+        int count=0;
+        int m;
+        while(true)
         {
-            System.out.println("the winner is "+cbOne.winner);
+            if(count%2==0)
+            {
+                playerX.updateBoard(cb);
+                m=playerX.go();
+                cb.setNewMove(m,'X');
+                cb.display();
+                if(cb.isWin()==1)
+                {
+                    System.out.print(cb.getWinner());
+                    break;
+                }
+            }
+            else
+            {
+                playerO.updateBoard(cb);
+                m=playerO.go();
+                cb.setNewMove(m,'O');
+                cb.display();
+                if(cb.isWin()==1)
+                {
+                    System.out.println("the winner is "+cb.getWinner());
+                    break;
+                }
+
+            }
+            count++;
+            if(count==9) 
+            {
+                System.out.println("call it a draw");
+            }
+            
         }
+
     }
 }
