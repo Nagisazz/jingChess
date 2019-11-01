@@ -1,2 +1,3 @@
 # jingChess
-practice of java
+practice of java(
+try to learn java...
